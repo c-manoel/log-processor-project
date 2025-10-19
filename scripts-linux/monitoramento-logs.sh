@@ -13,4 +13,7 @@ find $LOG_DIR -name "*.log" -print0 | while IFS= read -r -d '' arquivo; do
        sed -i 's/API key leaked: .*/API key leaked: REDACTED/g' "${arquivo}.filtrado"
        sed -i 's/User credit card last four digits: .*/User credit card last four digits: REDACTED/g' "${arquivo}.filtrado"
        sed -i 's/User session initiated with token: .*/User session initiated with token: REDACTED/g' "${arquivo}.filtrado"
+
+       sort "${arquivo}.filtrado"  -o "${arquivo}.filtrado"
+
 done
